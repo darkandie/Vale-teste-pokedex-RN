@@ -1,8 +1,13 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import Router from './src/screens/routes/Router';
 
 function App(): JSX.Element {
-  return <SafeAreaView />;
+  return (
+    <NavigationContainer>
+      <Router />
+    </NavigationContainer>
+  )
 }
 
 export default App;
