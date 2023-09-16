@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native';
+import { View} from 'react-native';
 import React, { type FunctionComponent } from 'react';
+import { Header } from '../../components/Header';
 
 const Home: FunctionComponent = () => {
   return (
     <View>
-      <Text>Home</Text>
+      <Header />
     </View>
   )
 }
