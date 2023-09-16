@@ -16,7 +16,7 @@ const PokemonCard = ({item}: PokemonCardProps): JSX.Element => {
       <Box overflow="hidden" borderWidth={1} borderColor={"gray.300"} position="relative" margin={1} w="31%" rounded={8}>
         <ImageBackground source={Images.background()} resizeMode="cover">
           <Text style={styles.id}>{item.id}</Text>
-          <Image zIndex={2} source={{uri: item.urlImage}} size="xl"/>
+          <Image zIndex={2} source={{uri: item.urlImage}} size="xl" alt="pokemon"/>
           <Center>
             <Text style={styles.name}>{item.name}</Text>
           </Center>
