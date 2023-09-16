@@ -6,12 +6,12 @@ import styles from './Header.styles';
 
 const Header: FunctionComponent = () => {
   return (
-      <Heading bg={'red.700'} paddingX={3} paddingY={15}>
-        <HStack alignItems="center">
-          <Icon name="pokeball" style={styles.iconStyle}/>
-          <Heading size="lg" color={'white'}>Pokédex</Heading>
-        </HStack>
-      </Heading>
+    <Heading bg={'red.700'} paddingX={3} paddingY={15}>
+      <HStack alignItems="center">
+        <Icon name="pokeball" style={styles.iconStyle}/>
+        <Heading size="lg" color={'white'}>Pokédex</Heading>
+      </HStack>
+    </Heading>
   )
 }
 
