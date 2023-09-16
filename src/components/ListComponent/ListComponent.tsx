@@ -1,11 +1,12 @@
-import { Text } from 'react-native';
+import { FlatList } from 'react-native';
 import React, { type FunctionComponent } from 'react';
 import { Box, Center } from 'native-base';
+import Data from './Data';
+import { PokemonCard } from '../PokemonCard';
 
 const ListComponent: FunctionComponent = () => {
   return (
     <Center 
-      alignItems="center" 
       bg={'red.700'} 
       flex={1} 
       padding={1}>
@@ -14,10 +15,17 @@ const ListComponent: FunctionComponent = () => {
         w="full" 
         h="full" 
         borderRadius={8} 
-        alignItems="center" 
-        justifyContent="center"
+        paddingX={1}
+        paddingY={5}
       >
-        <Text>ListComponent</Text>
+        <Center>
+          <FlatList
+            data={Data}
+            renderItem={item => <PokemonCard {...item}/>}
+            keyExtractor={item => item.id}
+            numColumns={3}
+          />
+        </Center>
       </Box>  
     </Center>
   )
