@@ -21,6 +21,8 @@ const PokemonCard = ({item}: PokemonCardProps): JSX.Element => {
     )
   }
 
+  console.log(data, 'PokemonCard');
+
   if(isLoading) return <Loader />;
 
   const handleNavigation = ():void => { navigate('Details', {name: data?.name});};

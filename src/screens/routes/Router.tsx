@@ -21,7 +21,13 @@ const Router: FunctionComponent = () => {
   return (
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
-      <Stack.Screen name="Details" component={Details} />
+      <Stack.Screen name="Details" component={Details} options={{
+        headerTransparent: true,
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}/>
     </Stack.Navigator>
   );
 }
