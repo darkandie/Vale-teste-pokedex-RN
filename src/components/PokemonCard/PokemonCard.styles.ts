@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   name: { 
     position: "absolute", 
-    bottom: 10, 
+    bottom: 5, 
     fontWeight: "400", 
     color: 'black',
   },

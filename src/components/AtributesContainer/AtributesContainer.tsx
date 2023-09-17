@@ -1,10 +1,27 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
+import { Box, Center } from 'native-base';
 
 const AtributesContainer = (): JSX.Element => {
   return (
-    <View style={{flex: 2}}>
-      <Text>AtributesContainer</Text>
+    <View style={{flex: 2, zIndex: 1}}>
+      <Center 
+        bg={"lime.500"}
+        flex={1} 
+        padding={1}
+      >
+        <Box 
+          bg={'white'} 
+          w="full" 
+          h="full" 
+          borderRadius={8} 
+          paddingX={1}
+          paddingY={5}
+        >
+          <Center>
+          </Center>
+        </Box>  
+      </Center>
     </View>
   )
 }

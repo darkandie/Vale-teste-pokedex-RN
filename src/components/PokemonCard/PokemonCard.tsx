@@ -32,7 +32,17 @@ const PokemonCard = ({item}: PokemonCardProps): JSX.Element => {
       <TouchableOpacity onPress={handleNavigation}>
         <ImageBackground source={Images.background()} resizeMode="cover">
           <Text style={styles.id}>{data?.id}</Text>
-          <Image zIndex={2} source={{uri: data?.sprites.front_default}} size="xl" alt="pokemon" marginBottom={4}/>
+          <Center>
+            <Image 
+              zIndex={2} 
+              source={{uri: data?.sprites.other['official-artwork'].front_default}} 
+              size="lg" 
+              alt="pokemon" 
+              marginBottom={5} 
+              marginTop={5} 
+              resizeMode='cover'
+            />
+          </Center>
           <Center>
            <Text style={styles.name}>{data?.name}</Text>
           </Center> 
