@@ -5,12 +5,15 @@ import {type Pokemon } from '../../types/Pokemon';
 import IconWeight from "react-native-vector-icons/FontAwesome5";
 import IconHeight from "react-native-vector-icons/MaterialCommunityIcons";
 import { colorByType } from '../../util/getColorByType';
+import { useGetPokemonCharacteristicsQuery } from '../../store/services/pokemonApi';
 
 interface AtributesContainerProps {
   attributes?: Pokemon;
 }
 
 const AtributesContainer = ({attributes}: AtributesContainerProps): JSX.Element => {
+  const { data } = useGetPokemonCharacteristicsQuery(attributes?.id);
+
   return (
     <View style={{flex: 2, zIndex: 1}}>
       <Center 
@@ -79,8 +82,9 @@ const AtributesContainer = ({attributes}: AtributesContainerProps): JSX.Element 
                 </Center> 
               </Box>
             </HStack>
+            <Text mt={5}>{data?.descriptions[7].description}</Text>
           </Center>
-        </Box>  
+        </Box>
       </Center>
     </View>
   )
