@@ -21,16 +21,20 @@ const PokemonCard = ({item}: PokemonCardProps): JSX.Element => {
     )
   }
 
-  console.log(data, 'PokemonCard');
-
   if(isLoading) return <Loader />;
 
   const handleNavigation = ():void => { navigate('Details', {name: data?.name});};
 
   return (
-    <Box shadow={1} overflow="hidden" borderWidth={1} borderColor={"gray.300"} position="relative" margin={1} w="31%" rounded={8}>
+    <Box 
+      shadow={1} 
+      overflow="hidden" 
+      borderWidth={1} 
+      borderColor={"gray.300"} 
+      position="relative" margin={1} 
+      rounded={8}>
       <TouchableOpacity onPress={handleNavigation}>
-        <ImageBackground source={Images.background()} resizeMode="cover">
+        <ImageBackground source={Images.background()} resizeMode="cover" style={{padding: 10}}>
           <Text style={styles.id}>{data?.id}</Text>
           <Center>
             <Image 

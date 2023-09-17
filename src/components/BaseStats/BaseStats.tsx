@@ -8,8 +8,6 @@ interface BaseStatsProps {
 }
 
 const BaseStats = ({stats}: BaseStatsProps): JSX.Element => {
-  console.log(stats, 'BaseStats');
-  
   return (
     <Box>
       <Center>

@@ -1,5 +1,5 @@
 import { FlatList , ActivityIndicator} from 'react-native';
-import React, { type FunctionComponent } from 'react';
+import React, { type FunctionComponent, useState, useEffect } from 'react';
 import { Box, Center, Input } from 'native-base';
 import { PokemonCard } from '../PokemonCard';
 import { useGetAllPokemonsQuery } from '../../store/services/pokemonApi';
@@ -10,6 +10,17 @@ import styles from "./ListComponent.styles";
 
 const ListComponent: FunctionComponent = () => {
   const { data, isLoading } = useGetAllPokemonsQuery();
+  const [ pokemonsList, setPokemonsList ] = useState<Array<{name: string; url: string;}> | undefined>([]);
+  const [ searchPokemon, setSearchPokemon ] = useState('');
+
+  const pokemons = data?.results;
+
+  useEffect(() => {
+    const filtereData = 
+      pokemons?.filter((item) => item.name.toLowerCase().includes(searchPokemon.toLowerCase())||  
+      item.url.toLowerCase().includes(searchPokemon.toLowerCase()));
+    setPokemonsList(filtereData);
+  }, [searchPokemon, pokemons]);
 
   const Loader = (): JSX.Element => {
     return(
@@ -28,11 +39,14 @@ const ListComponent: FunctionComponent = () => {
       paddingBottom={6}
       >
       <Input 
+        onChangeText={(text): void => { setSearchPokemon(text); }}
         InputLeftElement={<Search name="search" color="red" size={15} style={{marginLeft: 10}}/>}
         mx="4" 
+        color={"white"}
         placeholder="Search" 
         h={9} size="md" 
-        width="80%" bg={"white"} 
+        width="80%" 
+        bg={"white"} 
         borderRadius={20}/>
       <Icon name="hash" size={15} color={"red"} style={styles.iconStyle}/>
     </Box>
@@ -50,7 +64,7 @@ const ListComponent: FunctionComponent = () => {
         >
           <Center>
             <FlatList
-              data={data?.results}
+              data={pokemonsList}
               renderItem={({ item }) => <PokemonCard item={item}/>}
               keyExtractor={item => item.name}
               numColumns={3}
