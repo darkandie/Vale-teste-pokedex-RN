@@ -31,7 +31,9 @@ const Details: FunctionComponent = () => {
         id={data?.id} 
         imgUrl={data?.sprites.other['official-artwork'].front_default}
       />
-      <AtributeContainer />
+      <AtributeContainer
+        attributes={data}
+      />
     </SafeAreaView>
   )
 }
