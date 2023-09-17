@@ -6,7 +6,7 @@ const AtributesContainer = (): JSX.Element => {
   return (
     <View style={{flex: 2, zIndex: 1}}>
       <Center 
-        bg={"lime.500"}
+        bg={"green.600"}
         flex={1} 
         padding={1}
       >
