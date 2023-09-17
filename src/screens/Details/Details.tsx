@@ -23,8 +23,6 @@ const Details: FunctionComponent = () => {
 
   if(isLoading) return <Text>...carregando</Text>;
 
-  console.log(data, 'Details');
-
   return (
     <SafeAreaView style={{ flex: 1}}>
       <DetailsHeader 
