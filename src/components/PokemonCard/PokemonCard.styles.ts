@@ -3,8 +3,9 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   name: { 
     position: "absolute", 
-    bottom: 10, fontWeight: "400", 
-    color: 'black', 
+    bottom: 10, 
+    fontWeight: "400", 
+    color: 'black',
   },
   id: { 
     position: "absolute", 

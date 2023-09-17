@@ -5,6 +5,18 @@ import Details from '../Details/Details';
 
 const Stack = createNativeStackNavigator();
 
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace ReactNavigation {
+    interface RootParamList {
+      Home: undefined;
+      Details: {
+        name: string | undefined;
+      };
+    }
+  }
+}
+
 const Router: FunctionComponent = () => {
   return (
     <Stack.Navigator initialRouteName="Home">

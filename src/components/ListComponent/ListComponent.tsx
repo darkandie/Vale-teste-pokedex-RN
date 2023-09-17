@@ -1,10 +1,21 @@
-import { FlatList } from 'react-native';
+import { FlatList , ActivityIndicator} from 'react-native';
 import React, { type FunctionComponent } from 'react';
 import { Box, Center } from 'native-base';
-import Data from './Data';
 import { PokemonCard } from '../PokemonCard';
+import { useGetAllPokemonsQuery } from '../../store/services/pokemonApi';
+
 
 const ListComponent: FunctionComponent = () => {
+  const { data, isLoading } = useGetAllPokemonsQuery();
+
+  const Loader = (): JSX.Element => {
+    return(
+      <ActivityIndicator size={20} color={'red'}/>
+    )
+  }
+
+  if(isLoading) return <Loader />;
+
   return (
     <Center 
       bg={'red.700'} 
@@ -20,10 +31,11 @@ const ListComponent: FunctionComponent = () => {
       >
         <Center>
           <FlatList
-            data={Data}
-            renderItem={item => <PokemonCard {...item}/>}
-            keyExtractor={item => item.id}
+            data={data?.results}
+            renderItem={({ item }) => <PokemonCard item={item}/>}
+            keyExtractor={item => item.name}
             numColumns={3}
+            showsVerticalScrollIndicator={false}
           />
         </Center>
       </Box>  
