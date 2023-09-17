@@ -14,11 +14,13 @@ interface AtributesContainerProps {
 
 const AtributesContainer = ({attributes}: AtributesContainerProps): JSX.Element => {
   const { data } = useGetPokemonCharacteristicsQuery(attributes?.id);
+
+  const type = attributes?.types[0].type.name;
   
   return (
     <View style={{flex: 2, zIndex: 1}}>
       <Center 
-        bg={"green.600"}
+        bg={colorByType[type]}
         flex={1} 
         padding={1}
       >

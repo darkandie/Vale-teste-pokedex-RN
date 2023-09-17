@@ -28,6 +28,7 @@ const Details: FunctionComponent = () => {
       <DetailsHeader 
         id={data?.id} 
         imgUrl={data?.sprites.other['official-artwork'].front_default}
+        type={data?.types[0].type.name}
       />
       <AtributeContainer
         attributes={data}
